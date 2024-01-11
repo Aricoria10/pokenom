@@ -6,7 +6,7 @@ function getType() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
     });
 }
 
@@ -14,7 +14,7 @@ let map;
 let service;
 
 async function initMap(latitude, longitude) {
-  console.log(latitude, longitude);
+  // console.log(latitude, longitude);
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: latitude, lng: longitude },
     zoom: 10,
@@ -43,10 +43,13 @@ function handleLocationError() {
   alert("Error: The Geolocation service failed.");
 }
 
-function initPlaceMap(latitude, longitude) {
-  console.log("places call lat and lng" + latitude + longitude);
-  function initialize() {
-    const typeString = "graveyard";
+function initPlaceMap(latitude, longitude, uniqueType) {
+  // console.log("places call lat and lng" + latitude + longitude);
+  // console.log(uniqueType);
+  function initialize(latitude, longitude, uniqueType) {
+    console.log(uniqueType);
+    var string = [uniqueType];
+    console.log(string);
     map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: latitude, lng: longitude },
       zoom: 15,
@@ -55,29 +58,34 @@ function initPlaceMap(latitude, longitude) {
     var request = {
       location: { lat: latitude, lng: longitude },
       radius: "16000",
-      type: ['graveryard']
+      type: string,
     };
-    // console.log(request);
     service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, callback);
   }
 
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
+      console.log(results[i=3].geometry.location);
       for (var i = 0; i < results.length; i++) {
-        console.log(results[i].types);
-        // console.log(results[i]);
-        // function createMarker(results[i]) {
-        //   const marker = new google.maps.Marker({
-        //     position: { lat: latitude, lng: longitude },
-        //     map,
-        //     title: "Pokemon",
-        //   });
+        function createMarker() {
+          // console.log(results[i]);
+          const marker = new google.maps.Marker({
+            map,
+            position: results.geometry.location
+          });
+          console.log(marker);
+
+          google.maps.event.addListener(marker, "click", () => {
+            infowindow.setContent(place.name || "");
+            infowindow.open(map);
+          });
+        }
       }
-      // createMarker(results[i]);
+      createMarker();
     }
   }
-  initialize();
+  initialize(latitude, longitude, uniqueType);
 }
 function placebytype(pokeTypeValue) {
   var poketypes = localStorage.getItem("pokemon-types");
@@ -88,9 +96,10 @@ function placebytype(pokeTypeValue) {
       navigator.geolocation.getCurrentPosition((position) => {
         let lat = parseFloat(position.coords.latitude);
         let lng = parseFloat(position.coords.longitude);
+        let placeType = "accounting";
 
         //pass position to the map
-        initPlaceMap(lat, lng);
+        initPlaceMap(lat, lng, placeType);
       });
     } else {
       handleLocationError();
@@ -101,6 +110,22 @@ function placebytype(pokeTypeValue) {
     }
   } else if (pokeTypeValue == "FIRE") {
     console.log("Fire");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "atm";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "WATER") {
     console.log("Water");
   } else if (pokeTypeValue == "ELECTRIC") {
