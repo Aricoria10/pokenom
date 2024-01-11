@@ -11,6 +11,7 @@ function getType() {
 }
 
 let map;
+let service;
 
 async function initMap(latitude, longitude) {
   console.log(latitude, longitude);
@@ -51,24 +52,30 @@ function initPlaceMap(latitude, longitude) {
       zoom: 15,
     });
 
-    const request = {
+    var request = {
       location: { lat: latitude, lng: longitude },
       radius: "16000",
-      query: `${typeString} `,
-      fields: ["type"],
+      type: ['graveryard']
     };
     // console.log(request);
     service = new google.maps.places.PlacesService(map);
-    service.findPlaceFromQuery(request, (results, status) => {
-      if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-        console.log(results[i]);
-        for (let i = 0; i < results.length; i++) {
-          createMarker(results[i]);
-        }
+    service.nearbySearch(request, callback);
+  }
 
-        map.setCenter(results[0].geometry.location);
+  function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        console.log(results[i].types);
+        // console.log(results[i]);
+        // function createMarker(results[i]) {
+        //   const marker = new google.maps.Marker({
+        //     position: { lat: latitude, lng: longitude },
+        //     map,
+        //     title: "Pokemon",
+        //   });
       }
-    });
+      // createMarker(results[i]);
+    }
   }
   initialize();
 }
