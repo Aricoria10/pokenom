@@ -1,18 +1,248 @@
-#map {
-    height: 500px;
-    width: 800px;
-    border: solid red 4px;
-    display: none;
-  }
-  
-  /* Optional: Makes the sample page fill the window. */
-html,
+/* ============================================================ *\
+*               Mary Elenius Formatted Stylesheet                *
+*              https://github.com/404pandas                      *
+ *                        01/11/2024                            *
+  \* -------------------------------------------------------  */
+
+/*                     Table of Contents:                       *\
+
+* UNIVERSAL & VARIABLES
+  ## Universal Selectors
+  ## Color Variables
+
+* COMPONENTS
+  ## Body
+  ## Map
+  ## Navbar
+
+* HELPERS
+  ## Flexbox
+  ## Text Alignment
+  ## Poketype Z-Index
+
+* TYPOGRAPHY 
+  ## Font Family
+
+* HELPERS
+ ## Margin Auto
+
+* MEDIA QUERIES
+ ## Mobile Devices <= 600px
+ ## Tablet Devices > 600px
+ ## Desktop Devices > 992px
+ ## Large Desktop Devices > 1200px
+
+/* ============================================================ *\
+*                     Universal & Variables                      *
+\* -----------------------------------------------------------  */
+
+/* --------------      Universal Selectors       -------------- */
+
+/* ----------------      Color Variables       ---------------- */
+
+:root {
+  --light-green: #bbdd24ff;
+  --light-green-shadow: rgba(187, 221, 36, 0.09);
+  --orange: #f7c60aff;
+  --darkest-green: #1b6041;
+  --dark-green: #2fa36eff;
+  ---dark-blue: #193853ff;
+  --off-white: #ffffe1ff;
+}
+
+/* ============================================================ *\
+*                           Components                             *
+\* -----------------------------------------------------------  */
+
+/* ---------------------       Body       --------------------- */
+
 body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+  height: 100vh;
+}
+
+/* ---------------------       Map       --------------------- */
+
+#map {
+  height: 500px;
+  width: 800px;
+  border: solid red 4px;
+  display: none;
+}
+
+/* -------------------       Navbar       -------------------- */
+
+#navbar-container {
+  -webkit-box-shadow: 0 2px 2px 0 rgba(187, 221, 36, 0.14),
+    0 3px 1px -2px rgba(81, 175, 30, 0.12), 0 1px 5px 0 rgba(101, 169, 36, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(187, 221, 36, 0.14),
+    0 3px 1px -2px rgba(187, 221, 36, 0.12), 0 1px 5px 0 rgba(187, 221, 36, 0.2);
+}
+
+.wh {
+  display: flex !important;
+}
+
+nav ul li.active {
+  border-radius: 12px !important;
+}
+
+nav ul a:hover {
+  border-radius: 11px !important;
+}
+
+.navbar {
+  height: 125px;
+  padding: 0 !important; /* Remove padding added by Materialize CSS */
+  border-bottom: 1px solid var(--dark-green);
+}
+
+.center-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Make sure the logo takes up the full height of the navbar */
+}
+
+.logo-img {
+  max-height: 90%; /* Set the logo height to be 90% of the navbar height */
+}
+
+.right.nav-mobile {
+  display: flex;
+  align-items: center;
+  margin-right: auto; /* Pushes the "About Us" link to the right */
+  padding: 0; /* Remove padding added by Materialize CSS */
+  margin-left: 80px;
+}
+
+.left.nav-mobile {
+  display: inline-block !important;
+  float: none !important;
+  margin-left: auto;
+  padding: 0; /* Remove padding added by Materialize CSS */
+  margin-right: 80px;
+}
+
+.nav-mobile li {
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 3rem; /* Set font size to 3rem */
+  width: 200px;
+  text-align: center;
+}
+
+.nav-mobile a.active {
+  font-weight: bold; /* Add a style for active links */
+}
+
+/* Pseudo-element for the border animation */
+.nav-mobile.left a::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 0;
+  width: 0;
+  height: 130%;
+  border: 0px solid var(--darkest-green) !important;
+  border-radius: 25px !important;
+
+  z-index: -1;
+  transition: width 0.3s linear; /* Animation duration and easing */
+}
+
+.nav-mobile.right a::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 0;
+  height: 130%;
+  border: 0px solid var(--darkest-green) !important;
+  border-radius: 25px !important;
+
+  z-index: -1;
+  transition: width 0.3s linear; /* Animation duration and easing */
+}
+
+/* Hover effect */
+.nav-mobile a:hover::before {
+  width: 100%;
+  border: 2px solid var(--darkest-green) !important;
+}
+
+.logo-img.active {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+#navbar {
+  display: flex !important;
+  align-items: center;
+  background-color: var(--dark-green);
+}
+
+a {
+  font-size: 2rem !important;
+  text-wrap: nowrap;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================================ *\
+*                           Helpers                              *
+\* -----------------------------------------------------------  */
+
+#flexbox-turn-on {
+  display: flex;
+}
+
+#right-align {
+  text-align: end !important;
+}
+
+#left-align {
+  text-align: start;
+}
 
 #poketypes {
-    z-index: 100;
-  }
+  z-index: 100;
+}
+
+/* ============================================================ *\
+*                          Typography                            *
+\* -----------------------------------------------------------  */
+
+/* -----------------       Font Family       ------------------ */
+
+/* -------------------       Footer       --------------------- */
+
+/* -------------------       Button       --------------------- */
+
+/* ============================================================ *\
+*      Media Queries (Alphabetical by screen size break          *
+\* -----------------------------------------------------------  */
+
+/* ----------       Mobile Devices <= 600px S       ------------ */
+
+@media only screen and (max-width: 599px) {
+}
+
+/* ----------       Tablet Devices > 600px M      ------------- */
+
+@media only screen and (max-width: 600px) {
+}
+
+/* ----------       Desktop Devices > 992px L     ------------- */
+
+@media only screen and (max-width: 992px) {
+}
+
+/* ------       Large Desktop Devices > 1200px  XL      ------ */
+
+@media only screen and (max-width: 1200px) {
+}
+
+/* ============================================================ *\
+*                        Example Heading                         *
+\* -----------------------------------------------------------  */
+
+/* -------------       Example Sub-Heading       --------------- */
