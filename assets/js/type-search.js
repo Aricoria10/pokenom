@@ -79,4 +79,49 @@ function types() {
   });
 };
 
+function placebytype() {
+  var typeinput = poketypes
+  if (xx == normal) {
+
+  } else if (xx == Fire){
+
+  } else if (xx == Water){
+
+  } else if (xx == Electric){
+
+  } else if (xx == Grass) {
+
+  } else if (xx == Ice) {
+
+  } else if (xx == Fighting){
+
+  } else if (xx == Posion){
+
+  } else if (xx == Ground){
+
+  } else if (xx == Flying){
+
+  } else if (xx == Psychic){
+
+  } else if (xx == Bug){
+
+  } else if (xx == Rock){
+
+  } else if (xx == Ghost){
+
+  } else if (xx == Dragon){
+
+  } else if (xx == Dark){
+
+  } else if (xx == Steel){
+
+  } else if (xx == Fairy) {
+
+  }
+}
+
+$("#poketypes").on("click",() => {
+  placebytype($("#poketypes").val());
+});
+
 getType();
