@@ -53,8 +53,7 @@ function getType() {
   
   };
 
-function types() {
-  var poketypes = [
+var poketypes = [
     "Normal",
     "Fire",
     "Water",
@@ -77,7 +76,6 @@ function types() {
   $("#poketypes").autocomplete({
     source: poketypes
   });
-};
 
 function placebytype() {
   var typeinput = poketypes

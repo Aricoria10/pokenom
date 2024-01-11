@@ -1,24 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PokéNom</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-    <div class="ui-widget">
-        <label for="poketypes">Choose a Pokémon type: </label>
-        <input id="poketypes">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <nav class="navbar" id="navbar-container">
+    <div class="nav-wrapper" id="navbar">
+      <!-- Left-aligned "Map" navigation -->
+      <ul class="left nav-mobile">
+        <li style="display: inline-block" id="right-align">
+          <a
+            href="map.html"
+            class="waves-effect wh"
+            style="justify-content: flex-end !important"
+            >Map</a
+          >
+        </li>
+      </ul>
+
+      <!-- Center-aligned logo -->
+      <a href="index.html" class="brand-logo center-logo" id="flexbox-turn-on">
+        <img src="./assets/images/poke-logo.png" alt="Logo" class="logo-img" />
+      </a>
+
+      <!-- Right-aligned "About Us" navigation -->
+      <ul class="right nav-mobile">
+        <li style="display: inline-block" class="active" id="left-align">
+          <a href="type-search.html" class="waves-effect wh">Type Search</a>
+        </li>
+      </ul>
     </div>
-
-    <div id="map"></div>
-
+  </nav>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h4 class="col12 center-align">About Us Content</h4>
+      </div>
+      <div class="ui-widget">
+        <label for="poketypes">Choose a Pokémon type: </label>
+        <input id="poketypes" />
+      </div>
+    </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAREc5G26pYeKRvU3WItAY7isaJey0VA4g"></script>
+    <script src="./assets/js/main-page.js"></script>
+
     <script src="./assets/js/type-search.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-</body>
+    <script>
+      $(function() {
+        var poketypes = [
+        "Normal",
+        "Fire",
+        "Water",
+        "Electric",
+        "Grass",
+        "Ice",
+        "Fighting",
+        "Poison",
+        "Ground",
+        "Flying",
+        "Psychic",
+        "Bug",
+        "Rock",
+        "Ghost",
+        "Dragon",
+        "Dark",
+        "Steel",
+        "Fairy"
+  ];
+  $("#poketypes").autocomplete({
+    source: poketypes
+  });
+      })
+    </script>
+  </body>
 </html>
