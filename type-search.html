@@ -46,20 +46,60 @@
       <div class="row">
         <h4 class="col12 center-align">About Us Content</h4>
       </div>
-      <div class="ui-widget">
+      <div class="ui-widget"> 
+        <!--TODO Mary: add poketype icons and names-->
         <label for="poketypes">Choose a Pokémon type: </label>
         <input id="poketypes" />
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="subpokemon">Submit
+          <i class="material-icons right">send</i>
+        </button>
       </div>
+      <div id="map"></div>
     </div>
+    <!--Google maps-->
+    <!-- "https://maps.googleapis.com/maps/api/js?key=AIzaSyAREc5G26pYeKRvU3WItAY7isaJey0VA4g&libraries=places" -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAREc5G26pYeKRvU3WItAY7isaJey0VA4g"></script>
-    <script src="./assets/js/main-page.js"></script>
-
-    <script src="./assets/js/type-search.js"></script>
+    <!--Jquery import-->
     <script
       src="https://code.jquery.com/jquery-3.7.1.js"
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
       crossorigin="anonymous"
     ></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!--Jquery UI-->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js">
+      </script>
+    <!--Jquery function-->
+    <script>
+      $(function () {
+        var poketypes = [
+          "Normal",
+          "Fire",
+          "Water",
+          "Electric",
+          "Grass",
+          "Ice",
+          "Fighting",
+          "Poison",
+          "Ground",
+          "Flying",
+          "Psychic",
+          "Bug",
+          "Rock",
+          "Ghost",
+          "Dragon",
+          "Dark",
+          "Steel",
+          "Fairy",
+        ];
+        $("#poketypes").autocomplete({
+          source: poketypes,
+        });
+      });
+    </script>
+
+    <script src="./assets/js/main-page.js"></script>
+
+    <script src="./assets/js/type-search.js"></script>
+
   </body>
 </html>
