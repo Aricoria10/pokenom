@@ -14,6 +14,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <nav class="navbar" id="navbar-container">
@@ -45,13 +50,12 @@
   </nav>
   <body>
     <div class="container">
-      <div class="row">
-        <h4 class="col12 center-align">About Us Content</h4>
-      </div>
       <div class="ui-widget">
         <!--TODO Mary: add poketype icons and names-->
-        <label for="poketypes">Choose a Pokémon type: </label>
-        <input id="poketypes" />
+        <div class="input-field">
+          <input id="poketypes" type="text" class="validate" />
+          <label for="poketypes">Choose a Pokémon type:</label>
+        </div>
         <button
           class="btn waves-effect waves-light"
           type="submit"
@@ -64,6 +68,7 @@
       </div>
       <div id="map"></div>
     </div>
+
     <!--Google maps-->
     <!-- "https://maps.googleapis.com/maps/api/js?key=AIzaSyAREc5G26pYeKRvU3WItAY7isaJey0VA4g&libraries=places" -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAREc5G26pYeKRvU3WItAY7isaJey0VA4g&libraries=places"></script>

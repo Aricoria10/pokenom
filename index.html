@@ -14,6 +14,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <nav class="navbar" id="navbar-container">
@@ -53,9 +58,66 @@
     </div>
   </nav>
   <body>
-    <div class="container">
-      <div class="row">
-        <h4 class="col12 center-align">Landing Page Content</h4>
+    <!-- Hero Section -->
+    <div class="section blue lighten-2 white-text">
+      <div class="container">
+        <h2>Welcome to PokéNom</h2>
+        <p class="flow-text">
+          Experience the world of Pokémon in a new way with PokéNom. Explore the
+          world, catch Pokémon, and find places of interest where Pokémon might
+          spawn.
+        </p>
+      </div>
+    </div>
+
+    <!-- Image Section -->
+    <div class="section">
+      <div class="container">
+        <div class="row landing-row" id="flexbox-turn-on">
+          <div class="col s12 m6">
+            <img
+              src="./assets/images/Thea.png"
+              alt="Instructions Image"
+              class="responsive-img"
+            />
+          </div>
+          <div class="col s12 m6">
+            <h3>About Pokénom</h3>
+            <p>Follow these simple steps to get started with Pokénom:</p>
+            <ol>
+              <li>Visit the Map page.</li>
+              <li>Select desired Pokétype.</li>
+              <li>Start exploring your area to find Pokémon.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- App Instructions Section -->
+      <div class="section">
+        <div class="container">
+          <div class="row landing-row" id="flexbox-turn-on">
+            <div class="col s12 m6">
+              <h3>About Pokémon Go</h3>
+              <p>Follow these simple steps to get started with Pokémon Go:</p>
+              <ol>
+                <!-- App store: https://apps.apple.com/us/app/pok%C3%A9mon-go/id1094591345 -->
+                <!-- Google play: https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo -->
+                <!-- General website: https://pokemongolive.com/?hl=en -->
+                <li>Download the app from the App Store or Google Play.</li>
+                <li>Create an account and customize your avatar.</li>
+                <li>Start exploring your area to find Pokémon.</li>
+              </ol>
+            </div>
+            <div class="col s12 m6">
+              <img
+                src="./assets/images/Mary.png"
+                alt="Instructions Image"
+                class="responsive-img"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <script src="./assets/js/main-page.js"></script>
