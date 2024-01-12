@@ -44,13 +44,11 @@ function handleLocationError() {
 }
 
 function initPlaceMap(latitude, longitude, uniqueType) {
-  // console.log("places call lat and lng" + latitude + longitude);
-  // console.log(uniqueType);
   function initialize(latitude, longitude, uniqueType) {
     var string = [uniqueType];
     map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: latitude, lng: longitude },
-      zoom: 25,
+      zoom: 10,
     });
 
     var request = {
@@ -82,14 +80,12 @@ function initPlaceMap(latitude, longitude, uniqueType) {
 }
 function placebytype(pokeTypeValue) {
   var poketypes = localStorage.getItem("pokemon-types");
-  // console.log(poketypes);
   if (pokeTypeValue == "NORMAL") {
-    // console.log("Normal")
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         let lat = parseFloat(position.coords.latitude);
         let lng = parseFloat(position.coords.longitude);
-        let placeType = "accounting";
+        let placeType = "supermarket";
 
         //pass position to the map
         initPlaceMap(lat, lng, placeType);
@@ -102,12 +98,11 @@ function placebytype(pokeTypeValue) {
       alert("Error: The Geolocation service failed.");
     }
   } else if (pokeTypeValue == "FIRE") {
-    console.log("Fire");
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         let lat = parseFloat(position.coords.latitude);
         let lng = parseFloat(position.coords.longitude);
-        let placeType = "atm";
+        let placeType = "bakery";
 
         //pass position to the map
         initPlaceMap(lat, lng, placeType);
@@ -120,43 +115,282 @@ function placebytype(pokeTypeValue) {
       alert("Error: The Geolocation service failed.");
     }
   } else if (pokeTypeValue == "WATER") {
-    console.log("Water");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "spa";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "ELECTRIC") {
-    console.log("Electric");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "night_club";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "GRASS") {
-    console.log("Grass");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "park";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "ICE") {
-    console.log("Ice");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "cafe";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "FIGHTING") {
-    console.log("Fighting");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "gym";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "POISON") {
-    console.log("Poison");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "gas_station";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "GROUND") {
-    console.log("Ground");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "campground";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "FLYING") {
-    console.log("Flying");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "airport";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "PSYCHIC") {
-    console.log("Psychic");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "pharmacy";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "BUG") {
-    console.log("Bug");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "lodging";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "ROCK") {
-    console.log("Rock");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "museum";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "GHOST") {
-    console.log("Ghost");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "church";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "DRAGON") {
-    console.log("Dragon");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "bank";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "DARK") {
-    console.log("Dark");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "bar";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "STEEL") {
-    console.log("Steel");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "car_repair";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   } else if (pokeTypeValue == "FAIRY") {
-    console.log("Fairt");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = parseFloat(position.coords.latitude);
+        let lng = parseFloat(position.coords.longitude);
+        let placeType = "beauty_salon";
+
+        //pass position to the map
+        initPlaceMap(lat, lng, placeType);
+      });
+    } else {
+      handleLocationError();
+    }
+
+    function handleLocationError() {
+      alert("Error: The Geolocation service failed.");
+    }
   }
 }
 $("#subpokemon").on("click", (e) => {
   e.preventDefault();
   var pokeTypeValue = $("#poketypes").val().toString().toUpperCase();
-  // console.log(pokeTypeValue);
   localStorage.setItem("pokemon-types", pokeTypeValue);
   placebytype(pokeTypeValue);
 });
