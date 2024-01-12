@@ -63,8 +63,8 @@ body {
 /* ---------------------       Map       --------------------- */
 
 #map {
-  height: 500px;
-  width: 800px;
+  height: 400px;
+  width: 90%;
   border: solid red 4px;
 }
 
@@ -184,6 +184,25 @@ a {
   text-wrap: nowrap;
   width: 100%;
   height: 100%;
+}
+
+/* -------------------       Map       -------------------- */
+
+.input-field label {
+  color: #9e9e9e; /* Materialize default label color */
+}
+
+.input-field label.active {
+  color: #26a69a; /* Materialize primary color */
+}
+
+.input-field input[type="text"]:focus + label {
+  color: #26a69a; /* Materialize primary color */
+}
+
+.input-field input[type="text"]:focus {
+  border-bottom: 1px solid #26a69a; /* Materialize primary color */
+  box-shadow: 0 1px 0 0 #26a69a; /* Materialize primary color */
 }
 
 /* -------------------       About Us       -------------------- */
