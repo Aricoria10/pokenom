@@ -47,12 +47,10 @@ function initPlaceMap(latitude, longitude, uniqueType) {
   // console.log("places call lat and lng" + latitude + longitude);
   // console.log(uniqueType);
   function initialize(latitude, longitude, uniqueType) {
-    console.log(uniqueType);
     var string = [uniqueType];
-    console.log(string);
     map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: latitude, lng: longitude },
-      zoom: 15,
+      zoom: 25,
     });
 
     var request = {
@@ -66,23 +64,18 @@ function initPlaceMap(latitude, longitude, uniqueType) {
 
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      console.log(results[i=3].geometry.location);
+      console.log(results);
       for (var i = 0; i < results.length; i++) {
-        function createMarker() {
-          // console.log(results[i]);
           const marker = new google.maps.Marker({
             map,
-            position: results.geometry.location
+            position: results[i].geometry.location
           });
-          console.log(marker);
 
           google.maps.event.addListener(marker, "click", () => {
             infowindow.setContent(place.name || "");
             infowindow.open(map);
           });
-        }
       }
-      createMarker();
     }
   }
   initialize(latitude, longitude, uniqueType);
