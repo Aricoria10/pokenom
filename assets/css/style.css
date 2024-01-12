@@ -186,6 +186,38 @@ a {
   height: 100%;
 }
 
+/* -------------------       About Us       -------------------- */
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Adds a subtle shadow to cards */
+  width: fit-content !important; /* Sets the width to fit the content */
+}
+
+.card-image img {
+  height: 250px; /* Fixed height for images */
+  object-fit: cover; /* Ensures the image covers the area nicely */
+}
+
+.card-title {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Dark background for better readability */
+  padding: 10px !important; /* Some padding around the text */
+}
+
+.card-action {
+  justify-content: space-evenly;
+}
+
+.card-action a:not(.btn) {
+  color: var(--dark-green) !important; /* Custom color for links */
+  font-size: 15px !important;
+  width: auto !important;
+}
+
 /* ============================================================ *\
 *                           Helpers                              *
 \* -----------------------------------------------------------  */
