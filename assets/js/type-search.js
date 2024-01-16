@@ -33,7 +33,6 @@ function getType(typeName) {
         };
       });
 
-      console.log(mappedPokemonData);
       // <ul class="collapsible">
 //     <li>
 //     <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
