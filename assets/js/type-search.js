@@ -16,13 +16,10 @@ function getType(typeName) {
       var flattenedData = data.reduce(function (acc, val) {
         return acc.concat(val);
       }, []);
-      // console.log(flattenedData);
       // Filter the flattened data by type
       var filteredPokemon = flattenedData.filter(function (pokemon) {
         return pokemon.type.includes(typeName);
       });
-
-      // console.log(filteredPokemon);
 
       // Map each filtered Pokemon's data
       var mappedPokemonData = filteredPokemon.map(function (pokemon) {
@@ -32,21 +29,7 @@ function getType(typeName) {
           type: pokemon.type,
         };
       });
-
-      // <ul class="collapsible">
-//     <li>
-//     <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-//     <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-//   </li>
-//   <li>
-//     <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-//     <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-//   </li>
-//   <li>
-//     <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-//     <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-//   </li>
-// </ul>
+    
       // Display the mapped data
       mappedPokemonData.forEach(function (pokemon) {
         var pokemonEl = document.getElementById("individual-pokemon");
@@ -56,8 +39,7 @@ function getType(typeName) {
         var pokeName = document.createElement("div");
         var empty = document.createElement("li");
         var div = document.createElement("div");
-
-
+        
 // appending mapped dating and adding them to html sheed
         pokeId.textContent = `Pokemon ID: ${pokemon.pokemon_id}`;
         pokeName.textContent = `Name: ${pokemon.pokemon_name}`;
@@ -194,7 +176,8 @@ function initPlaceMap(latitude, longitude, uniqueType) {
     }
     initialize(latitude, longitude, uniqueType);
   }
-  //this is the function for the drop down. After the user selects the pokemon type the function will pass the placetype to the goggles map function to search for placetypes nearby
+
+  // this is the function for the drop down. After the user selects the pokemon type the function will find which type the user selected and pass the placetype to the goggles map function to search for placetypes nearby.
 function placebytype(pokeTypeValue) {
   var poketypes = localStorage.getItem("pokemon-types");
   if (pokeTypeValue == "NORMAL") {
@@ -215,9 +198,11 @@ function placebytype(pokeTypeValue) {
       alert("Error: The Geolocation service failed.");
     }
     getType("Normal");
+
     // TODO- set pokename from getType to new variable to be passed as getEncounter parameter
     // getEncounter("Normal");
     // console.log("Normal")
+
   } else if (pokeTypeValue == "FIRE") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -238,7 +223,7 @@ function placebytype(pokeTypeValue) {
      getType("Fire");
 
     // getEncounter("Fire");
-    // TODO - Thea: Add map funtionality to rest of types
+
   } else if (pokeTypeValue == "WATER") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -552,9 +537,9 @@ function placebytype(pokeTypeValue) {
     } else {
       handleLocationError();
     }
-
+//incharge of throwing the error if there is no location
     function handleLocationError() {
-      alert("Error: The Geolocation service failed.");
+      alert("Error: Please allow the location.");
     }
     getType("Fairy");
     // getEncounter("Fairy");
