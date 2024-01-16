@@ -43,21 +43,6 @@ function getType(typeName) {
 // appending mapped dating and adding them to html sheed
         pokeId.textContent = `Pokemon ID: ${pokemon.pokemon_id}`;
         pokeName.textContent = `Name: ${pokemon.pokemon_name}`;
-        pokeType.textContent = `Type: ${pokemon.type.join(", ")}`;
-
-        pokemonEl.appendChild(pokeName);
-        pokeName.appendChild(pokeId);
-        pokeName.appendChild(pokeType);
-      });
-    });
-}
-// This is grabbing infor from the encounter array of pokemon go api
-
-
-
-// appending mapped dating and adding them to html sheed
-        pokeId.textContent = `Pokemon ID: ${pokemon.pokemon_id}`;
-        pokeName.textContent = `Name: ${pokemon.pokemon_name}`;
         pokeType.textContent = `Type: ${pokemon.type}`;
         pokemonEl.appendChild(empty);
 empty.appendChild(pokeName); pokeName.classList.add("collapsible-header");
@@ -552,9 +537,9 @@ function placebytype(pokeTypeValue) {
     } else {
       handleLocationError();
     }
-
+//incharge of throwing the error if there is no location
     function handleLocationError() {
-      alert("Error: The Geolocation service failed.");
+      alert("Error: Please allow the location.");
     }
     getType("Fairy");
     // getEncounter("Fairy");
