@@ -1,13 +1,10 @@
 <div align="center">
 
-<!-- TODO: Replace 404pandas with your Github Username (i.e. Aricoria10) for entire README-->
-<!-- TODO: Replace PARSR with your Github Repo name (i.e. Pokenom) for entire README -->
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Contributors](https://img.shields.io/github/contributors/404pandas/PARSR.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/PARSR/graphs/contributors)
+[![Contributors](https://img.shields.io/github/contributors/404pandas/PARSR.svg?style=plastic&logo=appveyor)](https://github.com/Aricoria10/pokenom)
 [![Forks](https://img.shields.io/github/forks/404pandas/PARSR.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/PARSR/network/members)
 [![Stargazers](https://img.shields.io/github/stars/404pandas/PARSR.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/PARSR/stargazers)
-[![Issues](https://img.shields.io/github/issues/404pandas/PARSR.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/PARSR/issues)
+[![Issues](https://img.shields.io/github/issues/404pandas/PARSR.svg?style=plastic&logo=appveyor)](https://github.com/Aricoria10/pokenom/issues)
 
 </div>
 
@@ -25,7 +22,6 @@
     <a href="https://github.com/Aricoria10/pokenom"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <!-- TODO: Add your deployment URL here -->
     <a href="https://aricoria10.github.io/pokenom/">View Site</a>
     ·
     <a href="https://github.com/Aricoria10/pokenom/issues">Report Bug</a>
@@ -64,7 +60,6 @@
 
 <div align="center">
 
-<!-- TODO: Add a project description -->
 
 Pokenom is a website where users who use Pokemon Go can search for pokemon types they are looking for and locations will appear in Google maps where the pokemon may appear as well as locations informations, such as possible restaurants.
 
@@ -96,7 +91,6 @@ Pokenom is a website where users who use Pokemon Go can search for pokemon types
 
 This app is fully functional at the following site:
 
-<!-- TODO: Add deployment Link -->
 
 [Github Pages](https://aricoria10.github.io/pokenom/)
 
@@ -116,14 +110,14 @@ This app is fully functional at the following site:
 - [x] Places Data
 - [x] Map
 - [x] Filter Data
-- [ ] Final Styling
-- [ ] Fill out About Us page
-- [ ] Comments in Repo
-- [ ] README
-- [ ] Presentation Slidedeck
-- [ ] Deployment
+- [x] Final Styling
+- [x] Fill out About Us page
+- [x] Comments in Repo
+- [x] README
+- [x] Presentation Slidedeck
+- [x] Deployment
 
-See the [open issues](https://github.com/404pandas/PARSR/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/Aricoria10/pokenom/issues) for a full list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
