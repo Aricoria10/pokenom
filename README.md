@@ -63,13 +63,18 @@
 ## About The Project
 
 <div align="center">
-<!-- TODO: Add screenshots of the final product -->
-<!-- Add screenshots using the following format: -->
-<!-- ![Screenshot alt description](directPathOfScreenshots) -->
 
 <!-- TODO: Add a project description -->
 
 Pokenom is a website where users who use Pokemon Go can search for pokemon types they are looking for and locations will appear in Google maps where the pokemon may appear as well as locations informations, such as possible restaurants.
+
+![Front Page](./assets/images/pokenom-front.png)
+
+![About Us](./assets/images/Pokenom-about-us.png)
+
+![Google maps](./assets/images/pokenom-map.png)
+
+![Google results](./assets/images/pokenom-map-results.png)
 
 </div>
 
@@ -151,25 +156,19 @@ See LICENSE.txt for more information.
 
 [Robert McDermott](https://www.maryelenius.com/d20) - email.if.you.want@gmail.com
 
-[Thea Bentley](https://github.com/Aricoria10/) - email.if.you.want@gmail.com
+[Aletheia Bentley](https://github.com/Aricoria10/)
 
 [Mary Elenius](https://www.maryelenius.com/d20) - mary.panda.jackson@gmail.com
 
-<!-- TODO: Add your Github repo -->
-
 Project Link: [https://github.com/Aricoria10/pokenom](https://github.com/Aricoria10/pokenom)
-
-<!-- TODO: Add your deployment link -->
 
 Deployed Link: [https://aricoria10.github.io/pokenom/](https://aricoria10.github.io/pokenom/)
 
-<!-- ACKNOWLEDGMENTS -->
 
 ## Acknowledgments
 
-<!-- TODO: Add any acknowledgements you'd like to add here! -->
 
-#### Thea
+#### Aletheia
 
 Thank you very much to Mary for all the help! Couldn't have done this without you!
 
