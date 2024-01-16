@@ -1,3 +1,9 @@
+//java script for collapsple poke data
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.collapsible');
+  var instances = M.Collapsible.init(elems);
+});
+
 function getType(typeName) {
   var requestUrl = "https://pogoapi.net/api/v1/pokemon_types.json";
 // fetch pokemon go api
@@ -28,80 +34,99 @@ function getType(typeName) {
       });
 
       console.log(mappedPokemonData);
-
+      // <ul class="collapsible">
+//     <li>
+//     <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+//     <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+//   </li>
+//   <li>
+//     <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+//     <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+//   </li>
+//   <li>
+//     <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+//     <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+//   </li>
+// </ul>
       // Display the mapped data
       mappedPokemonData.forEach(function (pokemon) {
         var pokemonEl = document.getElementById("individual-pokemon");
 
-        var pokeId = document.createElement("li");
-        var pokeType = document.createElement("li");
-        var pokeName = document.createElement("ol");
+        var pokeId = document.createElement("div");
+        var pokeType = document.createElement("div");
+        var pokeName = document.createElement("div");
+        var empty = document.createElement("li");
+        var div = document.createElement("div");
+
+
 // appending mapped dating and adding them to html sheed
         pokeId.textContent = `Pokemon ID: ${pokemon.pokemon_id}`;
         pokeName.textContent = `Name: ${pokemon.pokemon_name}`;
-        pokeType.textContent = `Type: ${pokemon.type.join(", ")}`;
-
-        pokemonEl.appendChild(pokeName);
-        pokeName.appendChild(pokeId);
-        pokeName.appendChild(pokeType);
+        pokeType.textContent = `Type: ${pokemon.type}`;
+        pokemonEl.appendChild(empty);
+empty.appendChild(pokeName); pokeName.classList.add("collapsible-header");
+empty.appendChild(pokeId);pokeId.classList.add("collapsible-body");
+empty.appendChild(pokeType);pokeType.classList.add("collapsible-body");
+       
+      
       });
     });
 }
 // This is grabbing infor from the encounter array of pokemon go api
-function getEncounter(typeName) {
-  var requestUrl = "https://pogoapi.net/api/v1/pokemon_encounter_data.json";
+// function getEncounter(typeName) {
+//   var requestUrl = "https://pogoapi.net/api/v1/pokemon_encounter_data.json";
 
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      // console.log(data);
-      // Flatten the nested pokemon array
-      var flattenedData = data.reduce(function (acc, val) {
-        return acc.concat(val);
-      }, []);
+//   fetch(requestUrl)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       // console.log(data);
+//       // Flatten the nested pokemon array
+//       var flattenedData = data.reduce(function (acc, val) {
+//         return acc.concat(val);
+//       }, []);
 
-      typeResultsByName = typeName;
-      // console.log(flattenedData);
-      // Filter the flattened data by type
+//       typeResultsByName = typeName;
+//       // console.log(flattenedData);
+//       // Filter the flattened data by type
 
-      var filteredPokemon = flattenedData.filter(function (pokemon) {
-        typeResultsByName = pokemon.pokemon_name;
+//       var filteredPokemon = flattenedData.filter(function (pokemon) {
+//         typeResultsByName = pokemon.pokemon_name;
 
-        return pokemon.pokemon_name.includes(typeResultsByName);
-      });
+//         return pokemon.pokemon_name.includes(typeResultsByName);
+//       });
 
-      // Map each filtered Pokemon's data
-      var mappedPokemonData = filteredPokemon.map(function (pokemon) {
-        return {
-          pokemon_id: pokemon.pokemon_id,
-          pokemon_name: pokemon.pokemon_name,
-          type: pokemon.type,
-        };
-      });
+//       // Map each filtered Pokemon's data
+//       var mappedPokemonData = filteredPokemon.map(function (pokemon) {
+//         return {
+//           pokemon_id: pokemon.pokemon_id,
+//           pokemon_name: pokemon.pokemon_name,
+//           type: pokemon.type,
+//         };
+//       });
 
-      console.log(mappedPokemonData);
+//       console.log(mappedPokemonData);
 
-      // Display the mapped data
-      mappedPokemonData.forEach(function (pokemon) {
-        var pokemonEl = document.getElementById("individual-pokemon");
+//       // Display the mapped data
+//       mappedPokemonData.forEach(function (pokemon) {
+//         var pokemonEl = document.getElementById("individual-pokemon");
 
-        //creating new ordler lists for the pokemon info
-        var pokeId = document.createElement("ol");
-        var pokeType = document.createElement("ol");
-        var pokeName = document.createElement("ol");
+//         //creating new ordler lists for the pokemon info
+//         var pokeId = document.createElement("ol");
+//         var pokeType = document.createElement("ol");
+//         var pokeName = document.createElement("ol");
 
-        pokeId.textContent = `Pokemon ID: ${pokemon.pokemon_id}`;
-        pokeName.textContent = `Name: ${pokemon.pokemon_name}`;
-        pokeType.textContent = `Type: ${pokemon.type.join(", ")}`;
-        //adding info to page
-        pokemonEl.appendChild(pokeName);
-        pokeName.appendChild(pokeId);
-        pokeName.appendChild(pokeType);
-      });
-    });
-}
+//         pokeId.textContent = `Pokemon ID: ${pokemon.pokemon_id}`;
+//         pokeName.textContent = `Name: ${pokemon.pokemon_name}`;
+//         pokeType.textContent = `Type: ${pokemon.type.join(", ")}`;
+//         //adding info to page
+//         pokemonEl.appendChild(pokeName);
+//         pokeName.appendChild(pokeId);
+//         pokeName.appendChild(pokeType);
+//       });
+//     });
+// }
 
 let map;
 let service;
@@ -170,7 +195,7 @@ function initPlaceMap(latitude, longitude, uniqueType) {
     }
     initialize(latitude, longitude, uniqueType);
   }
-  // this is the function for the drop down. After the user selects the pokemon type the function will pass the placetype to the goggles map function to search for placetypes nearby
+  //this is the function for the drop down. After the user selects the pokemon type the function will pass the placetype to the goggles map function to search for placetypes nearby
 function placebytype(pokeTypeValue) {
   var poketypes = localStorage.getItem("pokemon-types");
   if (pokeTypeValue == "NORMAL") {
@@ -192,7 +217,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Normal");
     // TODO- set pokename from getType to new variable to be passed as getEncounter parameter
-    getEncounter("Normal");
+    // getEncounter("Normal");
     // console.log("Normal")
   } else if (pokeTypeValue == "FIRE") {
     if (navigator.geolocation) {
@@ -213,7 +238,7 @@ function placebytype(pokeTypeValue) {
     }
      getType("Fire");
 
-    getEncounter("Fire");
+    // getEncounter("Fire");
     // TODO - Thea: Add map funtionality to rest of types
   } else if (pokeTypeValue == "WATER") {
     if (navigator.geolocation) {
@@ -234,7 +259,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Water");
 
-    getEncounter("Water");
+    // getEncounter("Water");
   } else if (pokeTypeValue == "ELECTRIC") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -254,7 +279,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Electric");
 
-    getEncounter("Electric");
+    // getEncounter("Electric");
   } else if (pokeTypeValue == "GRASS") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -274,7 +299,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Grass");
 
-    getEncounter("Grass");
+    // getEncounter("Grass");
   } else if (pokeTypeValue == "ICE") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -294,7 +319,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Ice");
 
-    getEncounter("Ice");
+    // getEncounter("Ice");
   } else if (pokeTypeValue == "FIGHTING") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -314,7 +339,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Fighting");
 
-    getEncounter("Fighting");
+    // getEncounter("Fighting");
   } else if (pokeTypeValue == "POISON") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -334,7 +359,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Poison");
 
-    getEncounter("Poison");
+    // getEncounter("Poison");
   } else if (pokeTypeValue == "GROUND") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -354,7 +379,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Ground");
 
-    getEncounter("Ground");
+    // getEncounter("Ground");
   } else if (pokeTypeValue == "FLYING") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -374,7 +399,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Flying");
 
-    getEncounter("Flying");
+    // getEncounter("Flying");
   } else if (pokeTypeValue == "PSYCHIC") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -394,7 +419,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Psychic");
 
-    getEncounter("Psychic");
+    // getEncounter("Psychic");
   } else if (pokeTypeValue == "BUG") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -414,7 +439,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Bug");
 
-    getEncounter("Bug");
+    // getEncounter("Bug");
   } else if (pokeTypeValue == "ROCK") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -434,7 +459,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Rock");
 
-    getEncounter("Rock");
+    // getEncounter("Rock");
   } else if (pokeTypeValue == "GHOST") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -454,7 +479,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Ghost");
 
-    getEncounter("Ghost");
+    // getEncounter("Ghost");
   } else if (pokeTypeValue == "DRAGON") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -474,7 +499,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Dragon");
 
-    getEncounter("Dragon");
+    // getEncounter("Dragon");
   } else if (pokeTypeValue == "DARK") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -494,7 +519,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Dark");
 
-    getEncounter("Dark");
+    // getEncounter("Dark");
   } else if (pokeTypeValue == "STEEL") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -514,7 +539,7 @@ function placebytype(pokeTypeValue) {
     }
     getType("Steel");
 
-    getEncounter("Steel");
+    // getEncounter("Steel");
   } else if (pokeTypeValue == "FAIRY") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -533,7 +558,7 @@ function placebytype(pokeTypeValue) {
       alert("Error: The Geolocation service failed.");
     }
     getType("Fairy");
-    getEncounter("Fairy");
+    // getEncounter("Fairy");
   }
 }
 // event listener for the the search function
