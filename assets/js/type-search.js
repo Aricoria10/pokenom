@@ -6,18 +6,18 @@ function getType(typeName) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
       // Flatten the nested pokemon array
       var flattenedData = data.reduce(function (acc, val) {
         return acc.concat(val);
       }, []);
-      console.log(flattenedData);
+      // console.log(flattenedData);
       // Filter the flattened data by type
       var filteredPokemon = flattenedData.filter(function (pokemon) {
         return pokemon.type.includes(typeName);
       });
 
-      console.log(filteredPokemon);
+      // console.log(filteredPokemon);
 
       // Map each filtered Pokemon's data
       var mappedPokemonData = filteredPokemon.map(function (pokemon) {
@@ -57,7 +57,7 @@ function getEncounter(typeName) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
       // Flatten the nested pokemon array
       var flattenedData = data.reduce(function (acc, val) {
         return acc.concat(val);
@@ -114,17 +114,10 @@ let map;
 let service;
 
 async function initMap(latitude, longitude) {
-  // console.log(latitude, longitude);
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: latitude, lng: longitude },
     zoom: 10,
   });
-  //   const marker = new google.maps.Marker({
-  //     position: { lat: latitude, lng: longitude },
-  //     map,
-  //     title: "Pokemon",
-  //   });
-  //   marker.setIcon("./assets/images/poke-logo.png");
 }
 
 if (navigator.geolocation) {
@@ -162,16 +155,22 @@ function initPlaceMap(latitude, longitude, uniqueType) {
 
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      // console.log(results);
+      console.log(results);
       for (var i = 0; i < results.length; i++) {
         const marker = new google.maps.Marker({
           map,
           position: results[i].geometry.location,
         });
-
-        google.maps.event.addListener(marker, "click", () => {
-          infowindow.setContent(place.name || "");
-          infowindow.open(map);
+        results.forEach(async (results) => {
+          var infowindow = new google.maps.InfoWindow({
+            content: results.name
+          });
+          marker.addListener("click", () => {
+            infowindow.open({
+              anchor: marker,
+              map
+            });
+        });
         });
       }
     }
