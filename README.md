@@ -22,15 +22,15 @@
 <div align="center">
   <p align="center">
 <h1> Pokenom </h1>    
-    <a href="https://github.com/404pandas/PARSR"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Aricoria10/pokenom"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <!-- TODO: Add your deployment URL here -->
-    <a href="https://github.com/404pandas/PARSR">View Site</a>
+    <a href="https://aricoria10.github.io/pokenom/">View Site</a>
     ·
-    <a href="https://github.com/404pandas/PARSR/issues">Report Bug</a>
+    <a href="https://github.com/Aricoria10/pokenom/issues">Report Bug</a>
     ·
-    <a href="https://github.com/404pandas/PARSR/issues">Request Feature</a>
+    <a href="https://github.com/Aricoria10/pokenom/issues">Request Feature</a>
   </p>
 </div>
 
@@ -69,7 +69,7 @@
 
 <!-- TODO: Add a project description -->
 
-Project description will go here
+Pokenom is a website where users who use Pokemon Go can search for pokemon types they are looking for and locations will appear in Google maps where the pokemon may appear as well as locations informations, such as possible restaurants.
 
 </div>
 
@@ -93,12 +93,12 @@ This app is fully functional at the following site:
 
 <!-- TODO: Add deployment Link -->
 
-[Github Pages](https://www.maryelenius.com)
+[Github Pages](https://aricoria10.github.io/pokenom/)
 
 ### Installation
 
 1. Clone the repo
-   git clone https://github.com/404pandas/PARSR.git
+   git clone https://github.com/Aricoria10/pokenom
 
 <!-- USAGE EXAMPLES -->
 
@@ -151,17 +151,17 @@ See LICENSE.txt for more information.
 
 [Robert McDermott](https://www.maryelenius.com/d20) - email.if.you.want@gmail.com
 
-[Thea Bentley](https://www.maryelenius.com/d20) - email.if.you.want@gmail.com
+[Thea Bentley](https://github.com/Aricoria10/) - email.if.you.want@gmail.com
 
 [Mary Elenius](https://www.maryelenius.com/d20) - mary.panda.jackson@gmail.com
 
 <!-- TODO: Add your Github repo -->
 
-Project Link: [https://github.com/404pandas/PARSR](https://github.com/404pandas/PARSR)
+Project Link: [https://github.com/404pandas/PARSR](https://github.com/Aricoria10/pokenom)
 
 <!-- TODO: Add your deployment link -->
 
-Deployed Link: [https://www.maryelenius.com/d20](https://www.maryelenius.com/d20)
+Deployed Link: [https://www.maryelenius.com/d20](https://aricoria10.github.io/pokenom/)
 
 <!-- ACKNOWLEDGMENTS -->
 
