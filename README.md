@@ -148,7 +148,7 @@ See LICENSE.txt for more information.
 
 <!-- Todo: Add your contact info if you want -->
 
-[Robert McDermott](https://www.maryelenius.com/d20) - email.if.you.want@gmail.com
+[Robert McDermott](https://github.com/RobertMcDermot) - robojr181@yahoo.com
 
 [Aletheia Bentley](https://github.com/Aricoria10/)
 
@@ -168,7 +168,7 @@ Thank you very much to Mary for all the help! Couldn't have done this without yo
 
 #### Robert
 
-Add any acknowledgements you'd like here
+Again thank you to mary.theia,and John for all the help in the past few weeks.
 
 #### Mary
 
