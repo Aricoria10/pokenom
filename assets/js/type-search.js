@@ -70,7 +70,7 @@ empty.appendChild(pokeType);pokeType.classList.add("collapsible-body");
       
       });
     });
-}
+  }
 // This is grabbing infor from the encounter array of pokemon go api
 // function getEncounter(typeName) {
 //   var requestUrl = "https://pogoapi.net/api/v1/pokemon_encounter_data.json";
