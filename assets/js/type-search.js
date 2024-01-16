@@ -1,12 +1,11 @@
 function getType(typeName) {
   var requestUrl = "https://pogoapi.net/api/v1/pokemon_types.json";
-
+// fetch pokemon go api
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      // console.log(data);
       // Flatten the nested pokemon array
       var flattenedData = data.reduce(function (acc, val) {
         return acc.concat(val);
@@ -25,7 +24,6 @@ function getType(typeName) {
           pokemon_id: pokemon.pokemon_id,
           pokemon_name: pokemon.pokemon_name,
           type: pokemon.type,
-          // TODO- Rob: Add any other info you want to disply here
         };
       });
 
@@ -38,7 +36,7 @@ function getType(typeName) {
         var pokeId = document.createElement("li");
         var pokeType = document.createElement("li");
         var pokeName = document.createElement("ol");
-
+// appending mapped dating and adding them to html sheed
         pokeId.textContent = `Pokemon ID: ${pokemon.pokemon_id}`;
         pokeName.textContent = `Name: ${pokemon.pokemon_name}`;
         pokeType.textContent = `Type: ${pokemon.type.join(", ")}`;
@@ -49,6 +47,7 @@ function getType(typeName) {
       });
     });
 }
+// This is grabbing infor from the encounter array of pokemon go api
 function getEncounter(typeName) {
   var requestUrl = "https://pogoapi.net/api/v1/pokemon_encounter_data.json";
 
@@ -67,14 +66,11 @@ function getEncounter(typeName) {
       // console.log(flattenedData);
       // Filter the flattened data by type
 
-      // TODO - Thea + Rob post-MVP - Filter the flattened data by typeName = name
       var filteredPokemon = flattenedData.filter(function (pokemon) {
         typeResultsByName = pokemon.pokemon_name;
 
         return pokemon.pokemon_name.includes(typeResultsByName);
       });
-
-      // console.log(filteredPokemon);
 
       // Map each filtered Pokemon's data
       var mappedPokemonData = filteredPokemon.map(function (pokemon) {
@@ -82,7 +78,6 @@ function getEncounter(typeName) {
           pokemon_id: pokemon.pokemon_id,
           pokemon_name: pokemon.pokemon_name,
           type: pokemon.type,
-          // TODO- Rob: Add any other info you want to disply here
         };
       });
 
@@ -92,17 +87,15 @@ function getEncounter(typeName) {
       mappedPokemonData.forEach(function (pokemon) {
         var pokemonEl = document.getElementById("individual-pokemon");
 
-        // TODO- Rob: Create a new element for each piece of data you want to display
+        //creating new ordler lists for the pokemon info
         var pokeId = document.createElement("ol");
         var pokeType = document.createElement("ol");
         var pokeName = document.createElement("ol");
 
-        // TODO- Rob: Set the text content of the new elements to the data you want to display
         pokeId.textContent = `Pokemon ID: ${pokemon.pokemon_id}`;
         pokeName.textContent = `Name: ${pokemon.pokemon_name}`;
         pokeType.textContent = `Type: ${pokemon.type.join(", ")}`;
-
-        // TODO- Rob: Append the new elements to the organized list of pokemon
+        //adding info to page
         pokemonEl.appendChild(pokeName);
         pokeName.appendChild(pokeId);
         pokeName.appendChild(pokeType);
@@ -113,13 +106,15 @@ function getEncounter(typeName) {
 let map;
 let service;
 
+//this is adding the google map to the page
+
 async function initMap(latitude, longitude) {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: latitude, lng: longitude },
     zoom: 10,
   });
 }
-
+// this is finding the user's location to conduct the search
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition((position) => {
     let lat = parseFloat(position.coords.latitude);
@@ -135,7 +130,7 @@ if (navigator.geolocation) {
 function handleLocationError() {
   alert("Error: The Geolocation service failed.");
 }
-
+//centering the map on the search area
 function initPlaceMap(latitude, longitude, uniqueType) {
   function initialize(latitude, longitude, uniqueType) {
     var string = [uniqueType];
@@ -152,31 +147,30 @@ function initPlaceMap(latitude, longitude, uniqueType) {
     service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, callback);
   }
-
+// this function addes marker to each result as well as an info window to each marker
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      console.log(results);
       for (var i = 0; i < results.length; i++) {
         const marker = new google.maps.Marker({
           map,
           position: results[i].geometry.location,
         });
-        results.forEach(async (results) => {
-          var infowindow = new google.maps.InfoWindow({
-            content: results.name
+        const infowindow = new google.maps.InfoWindow({
+          content: results[i].name,
+          ariaLabel: results.name
+        });
+        marker.addListener("click", () => {
+          infowindow.open({
+            anchor: marker,
+            map
           });
-          marker.addListener("click", () => {
-            infowindow.open({
-              anchor: marker,
-              map
-            });
         });
-        });
+        }
       }
     }
+    initialize(latitude, longitude, uniqueType);
   }
-  initialize(latitude, longitude, uniqueType);
-}
+  // this is the function for the drop down. After the user selects the pokemon type the function will pass the placetype to the goggles map function to search for placetypes nearby
 function placebytype(pokeTypeValue) {
   var poketypes = localStorage.getItem("pokemon-types");
   if (pokeTypeValue == "NORMAL") {
@@ -542,8 +536,10 @@ function placebytype(pokeTypeValue) {
     getEncounter("Fairy");
   }
 }
+// event listener for the the search function
 $("#subpokemon").on("click", (e) => {
   e.preventDefault();
+  //converts the input to a string and then makes it all upper in case user entered pokemon type correctly
   var pokeTypeValue = $("#poketypes").val().toString().toUpperCase();
   localStorage.setItem("pokemon-types", pokeTypeValue);
   placebytype(pokeTypeValue);
