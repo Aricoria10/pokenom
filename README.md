@@ -157,11 +157,11 @@ See LICENSE.txt for more information.
 
 <!-- TODO: Add your Github repo -->
 
-Project Link: [https://github.com/404pandas/PARSR](https://github.com/Aricoria10/pokenom)
+Project Link: [https://github.com/Aricoria10/pokenom](https://github.com/Aricoria10/pokenom)
 
 <!-- TODO: Add your deployment link -->
 
-Deployed Link: [https://www.maryelenius.com/d20](https://aricoria10.github.io/pokenom/)
+Deployed Link: [https://aricoria10.github.io/pokenom/](https://aricoria10.github.io/pokenom/)
 
 <!-- ACKNOWLEDGMENTS -->
 
@@ -171,7 +171,7 @@ Deployed Link: [https://www.maryelenius.com/d20](https://aricoria10.github.io/po
 
 #### Thea
 
-Add any acknowledgements you'd like here
+Thank you very much to Mary for all the help! Couldn't have done this without you!
 
 #### Robert
 
