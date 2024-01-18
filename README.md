@@ -1,7 +1,7 @@
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Contributors](https://img.shields.io/github/contributors/https://github.com/Aricoria10/pokenom.svg?style=plastic&logo=appveyor)](https://github.com/Aricoria10/pokenom)
+[![Contributors](https://img.shields.io/github/contributors/Aricoria10/pokenom.svg?style=plastic&logo=appveyor)](https://github.com/Aricoria10/pokenom)
 [![Forks](https://img.shields.io/github/forks/Aricoria10/Pokenom.svg?style=plastic&logo=appveyor)](https://github.com/Aricoria10/Pokenom/network/members)
 [![Stargazers](https://img.shields.io/github/stars/Aricoria10/Pokenom.svg?style=plastic&logo=appveyor)](https://github.com/Aricoria10/Pokenom/stargazers)
 [![Issues](https://img.shields.io/github/issues/Aricoria10/Pokenom.svg?style=plastic&logo=appveyor)](https://github.com/Aricoria10/pokenom/issues)
